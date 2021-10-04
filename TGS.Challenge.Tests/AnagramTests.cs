@@ -38,7 +38,7 @@ namespace TGS.Challenge.Tests
     {
       var result = _anagram.AreAnagrams("Funeral", "Reel fun");
 
-      Assert.IsTrue(result);
+      Assert.IsFalse(result);
     }
 
     [Test()]
