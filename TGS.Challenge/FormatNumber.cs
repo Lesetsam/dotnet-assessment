@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 
 namespace TGS.Challenge
 {
@@ -26,7 +27,41 @@ namespace TGS.Challenge
     {
         public string Format(int value)
         {
-            return string.Empty;
+            if (value > 1000000000 || value < 0)
+                throw new ArgumentOutOfRangeException("range should be : 0 <= value < 1000000000");
+            StringBuilder sb = new StringBuilder();
+            string num = value.ToString();
+            int count = 0;
+
+            for (int i = num.Length - 1; i >= 0; i--)
+            {
+                count++;
+                sb.Append(num[i]);
+
+                if (count == 3)
+                {
+                    sb.Append(',');
+                    count = 0;
+                }
+            }
+
+            var results = Reverse(sb.ToString());
+
+            if (results.Length % 4 == 0)
+            {
+                results = results.Substring(1);
+            }
+
+            return results;
+        }
+
+        public string Reverse(string str)
+        {
+            if (str == null) return null;
+
+            char[] arr = str.ToCharArray();
+            Array.Reverse(arr);
+            return new String(arr);
         }
     }
 }
