@@ -16,7 +16,23 @@ namespace TGS.Challenge
     {
         public int Count(string value)
         {
-            return -1;
+            if (String.IsNullOrEmpty(value))
+            {
+                throw new ArgumentException("must be assigned and non-empty", "value");
+            }
+                
+            int vowelCount = 0;
+            int len = value.Length;
+
+            for (int i = 0; i < len; i++)
+            {
+
+                if (value[i] == 'a' || value[i] == 'e' || value[i] == 'i' || value[i] == 'o' || value[i] == 'u' || value[i] == 'A' || value[i] == 'E' || value[i] == 'I' || value[i] == 'O' || value[i] == 'U')
+                {
+                    vowelCount++;
+                }
+            }
+            return vowelCount;
         }
     }
 }
