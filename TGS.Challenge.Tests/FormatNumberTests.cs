@@ -13,19 +13,19 @@ namespace TGS.Challenge.Tests
       this._formatNumber = new FormatNumber();
     }
 
-    [Test()]
+    [Test]
     public void NegativeNumber_Throws_ArgumentOutOfRangeException()
     {
       Assert.Throws<ArgumentOutOfRangeException>(() => _formatNumber.Format(-1));
     }
 
-    [Test()]
+    [Test]
     public void BiggerThanMaxNumber_Throws_ArgumentOutOfRangeException()
     {
       Assert.Throws<ArgumentOutOfRangeException>(() => _formatNumber.Format(1000000001));
     }
 
-    [Test()]
+    [Test]
     public void Value_1_Returns_ValidString()
     {
       var formatted = _formatNumber.Format(1);
@@ -33,7 +33,7 @@ namespace TGS.Challenge.Tests
       Assert.AreEqual("1", formatted);
     }
 
-    [Test()]
+    [Test]
     public void Value_10_Returns_ValidString()
     {
       var formatted = _formatNumber.Format(10);
@@ -41,7 +41,7 @@ namespace TGS.Challenge.Tests
       Assert.AreEqual("10", formatted);
     }
 
-    [Test()]
+    [Test]
     public void Value_100_Returns_ValidString()
     {
       var formatted = _formatNumber.Format(100);
@@ -49,7 +49,7 @@ namespace TGS.Challenge.Tests
       Assert.AreEqual("100", formatted);
     }
 
-    [Test()]
+    [Test]
     public void Value_1000_Returns_ValidString()
     {
       var formatted = _formatNumber.Format(1000);
@@ -57,7 +57,7 @@ namespace TGS.Challenge.Tests
       Assert.AreEqual("1,000", formatted);
     }
   
-    [Test()]
+    [Test]
     public void Value_10000_Returns_ValidString()
     {
       var formatted = _formatNumber.Format(10000);
@@ -65,7 +65,7 @@ namespace TGS.Challenge.Tests
       Assert.AreEqual("10,000", formatted);
     }
 
-    [Test()]
+    [Test]
     public void Value_100000_Returns_ValidString()
     {
       var formatted = _formatNumber.Format(100000);
@@ -73,7 +73,7 @@ namespace TGS.Challenge.Tests
       Assert.AreEqual("100,000", formatted);
     }
     
-    [Test()]
+    [Test]
     public void Value_1000000_Returns_ValidString()
     {
       var formatted = _formatNumber.Format(1000000);
@@ -81,7 +81,7 @@ namespace TGS.Challenge.Tests
       Assert.AreEqual("1,000,000", formatted);
     }
 
-    [Test()]
+    [Test]
     public void Value_35235235_Returns_ValidString()
     {
       var formatted = _formatNumber.Format(35235235);

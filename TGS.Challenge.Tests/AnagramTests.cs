@@ -10,59 +10,76 @@ namespace TGS.Challenge.Tests
 
     public AnagramTests()
     {
-      this._anagram = new Anagram();
+        this._anagram = new Anagram();
     }
-
-    [Test()]
+    [Ignore("Remove to run test")]
+    [Test]
     public void Word1_IsRequired()
     {
-      Assert.Throws<ArgumentException>(() => _anagram.AreAnagrams(string.Empty, "ABC"));
+        Assert.Throws<ArgumentException>(() => _anagram.AreAnagrams(string.Empty, "ABC"));
     }
 
-    [Test()]
+    [Ignore("Remove to run test")]
+    [Test]
     public void Word2_IsRequired()
     {
-      Assert.Throws<ArgumentException>(() => _anagram.AreAnagrams("ABC", string.Empty));
+        Assert.Throws<ArgumentException>(() => _anagram.AreAnagrams("ABC", string.Empty));
     }
 
-    [Test()]
+    [Test]
     public void Dormitory_IsAnagram_Dirty_room()
     {
-      var result = _anagram.AreAnagrams("Dormitory", "Dirty_room");
+        var result = _anagram.AreAnagrams("Dormitory", "Dirty_room");
 
-      Assert.IsTrue(result);
+        Assert.IsTrue(result);
     }
 
-    [Test()]
+    [Test]
     public void Funeral_IsAnagram_Reel_fun()
     {
-      var result = _anagram.AreAnagrams("Funeral", "Reel fun");
+        var result = _anagram.AreAnagrams("Funeral", "Reel fun");
 
-      Assert.IsFalse(result);
+        Assert.IsFalse(result);
     }
 
-    [Test()]
+    [Test]
     public void School_master_IsAnagram_The_classroom()
     {
-      var result = _anagram.AreAnagrams("School master?!", "!?The classroom");
+        var result = _anagram.AreAnagrams("School master?!", "!?The classroom");
 
-      Assert.IsTrue(result);
+        Assert.IsTrue(result);
     }
     
-    [Test()]
+    [Test]
     public void Listen_Is_NOT_Anagram_Silence()
     {
-      var result = _anagram.AreAnagrams("Listen", "Silence");
+        var result = _anagram.AreAnagrams("Listen", "Silence");
 
-      Assert.IsFalse(result);
+        Assert.IsFalse(result);
     }
 
-    [Test()]
+    [Test]
     public void Funeral_IsAnagram_Real_fun()
     {
-      var result = _anagram.AreAnagrams("Funeral", "Real fun");
+        var result = _anagram.AreAnagrams("Funeral", "Real fun");
 
-      Assert.IsTrue(result);
+        Assert.IsTrue(result);
     }
-  }
+
+    [Test]
+    public void horse_IsAnagram_shore()
+    {
+        var result = _anagram.AreAnagrams("horse", "shore");
+
+        Assert.IsTrue(result);
+    }
+
+    [Test]
+    public void Horse_Is_NOT_Anagram_Short()
+    {
+        var result = _anagram.AreAnagrams("Horse", "Short");
+
+        Assert.IsFalse(result);
+    }
+    }
 }
